@@ -19,14 +19,20 @@
 // 0 <= low <= high <= 10^9
 
 var countOdds = function(low, high) {
-    let result = 0;
+    let count = 0;
 
-    for (i = low ; i <= high; i++){
-        if (!(i % 2) == 0)
-            result ++
+    // for (i = low ; i <= high; i++){
+    //     if (!(i % 2) == 0)
+    //         result ++
+    // }
+
+    if((low % 2 == 0) && (high%2 == 0)){
+        count = (high - low )/2;
+    }else{
+        count = Math.floor((high - low)/2 + 1);
     }
 
-    return result;
+    return count;
 };
 
-console.log(countOdds(3, 7));
+console.log(countOdds(3, 8));
