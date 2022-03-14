@@ -48,4 +48,33 @@ strs[i] consists of only lower-case English letters.
     return prefix;
 };
 
-console.log(longestCommonPrefixHorScan (words));
+var words = ["flower","flow","flight"];
+// console.log(longestCommonPrefixHorScan (words));
+
+//Approach 2: Vertical scanning
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefixVertScan = function(strs) {
+
+    if(strs.length <= 0)
+        return "";
+
+        for (var i = 0; i < strs[0].length; i++){
+        
+        let c = strs[0].charAt(i);
+        
+        for (var j = 1; j < strs.length; j++){
+            if( i == strs[j].length || strs[j].charAt(i) != c){
+                return strs[0].substring(0, i);
+            }
+        }
+
+    }
+
+    return strs[0];
+};
+
+console.log(longestCommonPrefixVertScan (words));
