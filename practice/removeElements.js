@@ -12,7 +12,7 @@
             nums.splice(i, 1);
             i--;
         }
-            
+
     }
 
     return nums;
