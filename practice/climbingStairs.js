@@ -30,20 +30,43 @@ Constraints:
  * @param {number} n
  * @return {number}
  */
-var climbStairs = function(n) {
-    return climb_stairs(0, n);
+// var climbStairs = function(n) {
+//     return climb_stairs(0, n);
+// };
+
+// //brute force method
+// var climb_stairs = function (i, n){
+//     if (i > n)
+//         return 0;
+
+//     if(i == n)
+//         return 1;
+
+//     return climb_stairs(i+1, n) + climb_stairs(i + 2, n);
+// }
+
+
+// console.log(climbStairs(45));
+
+//memoization and brute force
+var climbStairs = function (n) {
+    var memo = [];
+    return climb_stairs(0, n, memo);
 };
 
-//brute force method
-var climb_stairs = function (i, n){
-    if (i > n)
+var climb_stairs = function (i, n, memo){
+    if(i > n)
         return 0;
 
     if(i == n)
         return 1;
 
-    return climb_stairs(i+1, n) + climb_stairs(i + 2, n);
-}
+    if(memo[i] > 0)
+        return memo[i];
 
+    memo[i] = climb_stairs(i+1, n, memo) + climb_stairs(i+2, n, memo);
+
+    return memo[i];
+}
 
 console.log(climbStairs(45));
