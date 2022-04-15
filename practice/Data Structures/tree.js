@@ -27,9 +27,21 @@
 class TreeNode {
     constructor(value){
         this.value = value;
-        this.descendants = [];
+        this.left = this.right = null;
     }
 }
+
+//program to create binary tree
+
+//root of the binary tree
+var root = null;
+
+//create root
+root = new Node(1);
+root.left = new Node(2);
+root.right = new Node(3);
+
+root.left.left = new Node(4);
 
 //create nodes with 3 descendants values
 const abe = new TreeNode("Abe");
